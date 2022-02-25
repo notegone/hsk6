@@ -113,6 +113,8 @@
 			setProgress(r = 0);
 		}
 
+		window.speechSynthesis.getVoices();		
+		
 		document.body.addEventListener("click", function() {
 		          var synth = window.speechSynthesis;
 			  synth.cancel(); 			
