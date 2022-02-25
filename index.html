@@ -114,6 +114,8 @@
 		}
 
 		document.body.addEventListener("click", function() {
+		          var synth = window.speechSynthesis;
+			  synth.cancel(); 			
 			  randomIndex = Math.ceil((Math.random()*hsk6_rem.length-1));
 			  newText = hsk6_rem[randomIndex];
 			  newTextPinyin = hsk6_pinyin_rem[randomIndex];
@@ -128,7 +130,11 @@
 			  randomDef3Div.innerHTML = newTextDef3;
 			  randomDef4Div.innerHTML = newTextDef4;
 			  increment();
-			  
+
+			  var msg = new SpeechSynthesisUtterance(newText);
+			  msg.lang = 'zh-CN';
+			  window.speechSynthesis.speak(msg);			
+			
 			  if (hsk6_rem.length == 1) { 
 
 			    hsk6_rem=[...hsk6];
